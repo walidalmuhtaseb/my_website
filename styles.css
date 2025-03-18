@@ -1,0 +1,376 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a0f2e 0%, #30135a 50%, #4b1b6e 100%);
+    color: #C9D1D9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Landing Page Styles */
+.landing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a0f2e 0%, #30135a 50%, #4b1b6e 100%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.wave-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 45%;
+    animation: wave 20s infinite linear;
+}
+
+.wave1 { top: -50%; animation-duration: 20s; }
+.wave2 { top: -60%; animation-duration: 15s; animation-delay: -5s; }
+.wave3 { top: -70%; animation-duration: 10s; animation-delay: -2s; }
+.wave4 { top: -80%; animation-duration: 8s; animation-delay: -8s; }
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.landing-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.landing-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 2em;
+    color: #fff;
+}
+
+.pixel-rocket {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2em;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.pixel-rocket img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.pixel-rocket.animate {
+    animation: rocketFloat 2s infinite ease-in-out;
+}
+
+@keyframes rocketFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.start-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Header Styles */
+header {
+    padding: 40px 20px;
+    background: rgba(22, 27, 34, 0.9);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Main Content Styles */
+.main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.main-content.visible {
+    opacity: 1;
+}
+
+/* Puzzle Styles */
+.puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    height: calc(100% - 80px); /* Account for section padding and header */
+}
+
+.puzzle-piece {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, order 0.2s ease, background-color 0.2s ease;
+    will-change: transform, order;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.puzzle-piece:not(.empty):hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.puzzle-piece.empty {
+    background: transparent;
+    cursor: default;
+}
+
+.skill-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.skill-icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.skill-name {
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}
+
+/* Content Layout */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Gradient Box */
+.gradient-box {
+    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* About Section */
+#about {
+    flex: 1;
+    text-align: left;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+/* Technical Skills Section */
+#technical-skills {
+    flex: 2;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+#technical-skills .skills-grid {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+/* Social Icons */
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+.icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+.icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon-content a:hover {
+    color: white;
+}
+
+.icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon-content a:hover .filled {
+    height: 100%;
+}
+
+/* Social icon specific colors */
+.icon-content a[data-social="linkedin"] .filled {
+    background-color: #0274b3;
+}
+
+.icon-content a[data-social="github"] .filled {
+    background-color: #24262a;
+}
+
+.icon-content a[data-social="email"] .filled {
+    background-color: #EA4335;
+}
+
+.icon-content a[data-social="resume"] .filled {
+    background-color: #2196F3;
+}
+
+/* Cards */
+.card {
+    width: 400px;
+    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
+    padding: 20px;
+    color: white;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.card-para {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .puzzle-container {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-content h2 {
+        font-size: 2em;
+    }
+
+    .pixel-rocket {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .puzzle-container {
+        max-width: 300px;
+    }
+}
+        
